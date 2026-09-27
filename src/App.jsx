@@ -2,10 +2,6 @@ import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import avatar from '../imagens/banner-e-foto/channels4_profile.jpg'
 
-import { useRef, useState } from 'react'
-import { motion } from 'framer-motion'
-import avatar from '../imagens/banner-e-foto/channels4_profile.jpg'
-
 // As thumbnails (imagens) continuam locais, elas são super leves
 const thumbOne = new URL('../imagens/videos/gmod.webp', import.meta.url).href
 const thumbTwo = new URL('../imagens/videos/valorantcomamigos.JPEG', import.meta.url).href
