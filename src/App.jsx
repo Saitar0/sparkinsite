@@ -24,7 +24,7 @@ const videoSix = 'https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/AZUN%2
 const letters = ['S', 'P', 'A', 'R', 'K', 'I', 'N']
 
 const socials = [
-  { label: 'YouTube', href: 'https://www.youtube.com/@osparkin/videos' },
+  { label: 'Twitter', href: 'https://x.com/osparkin' },
   { label: 'TikTok', href: 'https://www.tiktok.com/@sousparkin' },
   { label: 'E-mail', href: 'https://mail.google.com/mail/?view=cm&fs=1&to=sparkineditor.contato@gmail.com&su=Pedido%20de%20edi%C3%A7%C3%A3o&body=Ol%C3%A1!%20Tudo%20bem%3F%20Gostaria%20de%20pedir%20uma%20edi%C3%A7%C3%A3o%20sua.%20Pode%20me%20ajudar%3F' },
 ]
@@ -521,14 +521,19 @@ function App() {
         <div className="mx-auto flex max-w-7xl flex-col gap-5 px-4 py-8 text-center sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
           <div>
             <p className="text-[10px] uppercase tracking-[0.32em] text-[#f5ff00]">Contato</p>
-            <a href="https://www.youtube.com/@osparkin/videos" target="_blank" rel="noreferrer" className="mt-2 block text-xl font-black uppercase tracking-[-0.04em] text-white">
+            <a
+              href="https://x.com/osparkin"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-2 block text-xl font-black uppercase tracking-[-0.04em] text-white transition-colors duration-200 hover:text-[#f5ff00]"
+            >
               @osparkin
             </a>
           </div>
 
           <div className="flex items-center justify-center gap-3 text-xs uppercase tracking-[0.25em] text-zinc-400 sm:justify-end">
             {socials.map((item) => (
-              <a key={item.label} href={item.href} target="_blank" rel="noreferrer" className="transition hover:text-[#f5ff00]">
+              <a key={item.label} href={item.href} target="_blank" rel="noreferrer" className="transition-colors duration-200 hover:text-[#f5ff00]">
                 {item.label}
               </a>
             ))}
