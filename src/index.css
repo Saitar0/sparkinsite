@@ -1,0 +1,125 @@
+@import 'tailwindcss';
+
+:root {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  background: #09090b;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(245, 255, 0, 0.12), transparent 30%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent),
+    #09090b;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0.025)),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02), transparent 20%, rgba(255, 255, 255, 0.02));
+  background-size: 24px 24px;
+  opacity: 0.7;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.grunge-panel {
+  position: relative;
+  isolation: isolate;
+}
+
+.grunge-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.02), transparent 35%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.04),
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+  opacity: 0.8;
+}
+
+.letter-block {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-width: 0.72em;
+  padding: 0.02em 0.06em;
+  font-family: Impact, Haettenschweiler, 'Arial Black', sans-serif;
+  font-size: clamp(2.5rem, 5.5vw, 6.8rem);
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+  color: #09090b;
+  background: linear-gradient(180deg, #f3f3f3 0%, #d7d7d7 100%);
+  border: 3px solid #000;
+  box-shadow: 7px 7px 0 #f5ff00;
+  transform: skewY(-2deg);
+  filter: contrast(1.15);
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.12);
+  white-space: nowrap;
+}
+
+.letter-block:nth-child(odd) {
+  background: linear-gradient(180deg, #f5ff00 0%, #d5de00 100%);
+  color: #09090b;
+}
+
+.magnetic-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.magnetic-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #09090b;
+  transform: translateX(-101%);
+  transition: transform 0.3s ease;
+}
+
+.magnetic-button:hover::before {
+  transform: translateX(0);
+}
+
+.magnetic-button:hover {
+  color: #f5ff00;
+  box-shadow: 0 0 0 0 transparent;
+}
+
+.magnetic-button:hover span {
+  position: relative;
+  z-index: 10;
+}
