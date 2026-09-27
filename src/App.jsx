@@ -2,18 +2,28 @@ import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import avatar from '../imagens/banner-e-foto/channels4_profile.jpg'
 
+import { useRef, useState } from 'react'
+import { motion } from 'framer-motion'
+import avatar from '../imagens/banner-e-foto/channels4_profile.jpg'
+
+// As thumbnails (imagens) continuam locais, elas são super leves
 const thumbOne = new URL('../imagens/videos/gmod.webp', import.meta.url).href
-const videoOne = new URL('../imagens/videos/gmod.mkv', import.meta.url).href
 const thumbTwo = new URL('../imagens/videos/valorantcomamigos.JPEG', import.meta.url).href
-const videoTwo = new URL('../imagens/videos/valorantcomamigos.mkv', import.meta.url).href
 const thumbThree = new URL('../imagens/videos/issonaoeumaia.webp', import.meta.url).href
-const videoThree = new URL('../imagens/videos/issonaoeumaia.mkv', import.meta.url).href
 const thumbFour = new URL('../imagens/videos/a MELHOR e a PIOR NOTA de cada FRANQUIA [nn1uFu5I-wY].webp', import.meta.url).href
-const videoFour = new URL('../imagens/videos/a MELHOR e a PIOR NOTA de cada FRANQUIA.mkv', import.meta.url).href
 const thumbFive = new URL('../imagens/videos/A DECADÊNCIA dos jogos LEGO [ED_Xl8jK6Ho].webp', import.meta.url).href
-const videoFive = new URL('../imagens/videos/A DECADÊNCIA dos jogos LEGO.mkv', import.meta.url).href
 const thumbSix = new URL('../imagens/videos/AZUN INTRO METAMORFOSE (@ZSSPARKIN) [J4eBF25OXT0].jpeg', import.meta.url).href
-const videoSix = new URL('../imagens/videos/AZUN INTRO METAMORFOSE (@ZSSPARKIN).mkv', import.meta.url).href
+
+// 🚀 Aqui entram os links diretos gerados pelo painel do Vercel Blob:
+const videoOne = 'https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/gmod.mkv'
+const videoTwo = 'https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/valorantcomamigos.mkv'
+const videoThree = 'https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/issonaoeumaia.mkv'
+const videoFour = 'https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/a%20MELHOR%20e%20a%20PIOR%20NOTA%20de%20cada%20FRANQUIA.mkv'
+const videoFive = 'https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/A%20DECAD%C3%8ANCIA%20dos%20jogos%20LEGO.mkv'
+const videoSix = 'https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/AZUN%20INTRO%20METAMORFOSE%20%28%40ZSSPARKIN%29.mkv'
+
+// ... O restante do seu código (projects, handleProjectHover, refs, etc.) continua IGUAL!
+
 
 const letters = ['S', 'P', 'A', 'R', 'K', 'I', 'N']
 
