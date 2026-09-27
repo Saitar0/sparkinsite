@@ -1,5 +1,7 @@
 import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
+import MobileLandingPage from './components/mobile/MobileLandingPage'
+import { useIsMobile } from './hooks/useIsMobile'
 import avatar from '../imagens/banner-e-foto/channels4_profile.jpg'
 
 // As thumbnails (imagens) continuam locais, elas são super leves
@@ -10,7 +12,6 @@ const thumbFour = new URL('../imagens/videos/a MELHOR e a PIOR NOTA de cada FRAN
 const thumbFive = new URL('../imagens/videos/A DECADÊNCIA dos jogos LEGO [ED_Xl8jK6Ho].webp', import.meta.url).href
 const thumbSix = new URL('../imagens/videos/AZUN INTRO METAMORFOSE (@ZSSPARKIN) [J4eBF25OXT0].jpeg', import.meta.url).href
 
-// 🚀 Aqui entram os links diretos gerados pelo painel do Vercel Blob:
 const videoOne = 'https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/gmod.mkv'
 const videoTwo = 'https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/valorantcomamigos.mkv'
 const videoThree = 'https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/issonaoeumaia.mkv'
@@ -18,13 +19,10 @@ const videoFour = 'https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/a%20M
 const videoFive = 'https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/A%20DECAD%C3%8ANCIA%20dos%20jogos%20LEGO.mkv'
 const videoSix = 'https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/AZUN%20INTRO%20METAMORFOSE%20%28%40ZSSPARKIN%29.mkv'
 
-// ... O restante do seu código (projects, handleProjectHover, refs, etc.) continua IGUAL!
-
-
 const letters = ['S', 'P', 'A', 'R', 'K', 'I', 'N']
 
 const socials = [
-  { label: 'Twitter', href: 'https://x.com/osparkin' },
+  { label: 'Twitter', href: 'https://x.com/zssparkin' },
   { label: 'TikTok', href: 'https://www.tiktok.com/@sousparkin' },
   { label: 'E-mail', href: 'https://mail.google.com/mail/?view=cm&fs=1&to=sparkineditor.contato@gmail.com&su=Pedido%20de%20edi%C3%A7%C3%A3o&body=Ol%C3%A1!%20Tudo%20bem%3F%20Gostaria%20de%20pedir%20uma%20edi%C3%A7%C3%A3o%20sua.%20Pode%20me%20ajudar%3F' },
 ]
@@ -94,7 +92,7 @@ const fadeUp = {
   },
 }
 
-function App() {
+function DesktopLandingPage() {
   const [hoveredProject, setHoveredProject] = useState(null)
   const [selectedProject, setSelectedProject] = useState(null)
   const [hasUserInteraction, setHasUserInteraction] = useState(false)
@@ -522,12 +520,12 @@ function App() {
           <div>
             <p className="text-[10px] uppercase tracking-[0.32em] text-[#f5ff00]">Contato</p>
             <a
-              href="https://x.com/osparkin"
+              href="https://x.com/zssparkin"
               target="_blank"
               rel="noreferrer"
               className="mt-2 block text-xl font-black uppercase tracking-[-0.04em] text-white transition-colors duration-200 hover:text-[#f5ff00]"
             >
-              @osparkin
+              @zssparkin
             </a>
           </div>
 
@@ -544,4 +542,14 @@ function App() {
   )
 }
 
-export default App
+export default function App() {
+  const isMobile = useIsMobile()
+
+  // A lógica de desktop/mobile foi separada aqui para preservar a versão atual
+  // e trocar apenas o layout em telas pequenas, sem mexer no comportamento da desktop.
+  if (isMobile) {
+    return <MobileLandingPage />
+  }
+
+  return <DesktopLandingPage />
+}

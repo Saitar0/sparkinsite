@@ -48,6 +48,15 @@ img {
   max-width: 100%;
 }
 
+.mobile-scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.mobile-scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
 .grunge-panel {
   position: relative;
   isolation: isolate;
