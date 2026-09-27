@@ -123,9 +123,8 @@ export default function MobileLandingPage() {
             editor de vídeo
           </div>
 
-          <h1 className="mb-4 text-5xl font-black uppercase leading-[0.8] tracking-[-0.08em] text-white">
-            <span className="block">SPARK</span>
-            <span className="block text-[#f5ff00]">IN</span>
+          <h1 className="mb-4 font-black uppercase leading-[0.8] tracking-[-0.08em] text-white">
+            <span className="block text-[3.5rem] text-[#f5ff00]">SPARKIN</span>
           </h1>
 
           <p className="mx-auto max-w-sm text-sm leading-6 text-zinc-300">
