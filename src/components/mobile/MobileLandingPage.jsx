@@ -132,31 +132,64 @@ const translations = {
 }
 
 function LanguageToggle({ language, onChange }) {
-  const isPt = language === 'pt'
+  const [visualLanguage, setVisualLanguage] = useState(language)
+  const isPt = visualLanguage === 'pt'
+
+  useEffect(() => {
+    setVisualLanguage(language)
+  }, [language])
+
+  const handleToggle = () => {
+    const nextLanguage = isPt ? 'en' : 'pt'
+    setVisualLanguage(nextLanguage)
+
+    window.setTimeout(() => {
+      onChange(nextLanguage)
+    }, 180)
+  }
 
   return (
-    <div className="flex items-center gap-1.5 rounded-full border border-[#f5ff00]/70 bg-black/70 p-1.5 shadow-[0_0_0_2px_rgba(245,255,0,0.12)]">
-      {['pt', 'en'].map((value) => {
-        const active = language === value
-        const flag = value === 'pt' ? '🇧🇷' : '🇺🇸'
+    <button
+      type="button"
+      onClick={handleToggle}
+      aria-label={isPt ? 'Switch to English' : 'Mudar para português'}
+      className="relative inline-flex h-8 w-14 cursor-pointer items-center overflow-hidden rounded-full border border-[#f5ff00]/70 bg-black/70 p-1 shadow-[0_0_0_2px_rgba(245,255,0,0.12)] transition-all duration-300 hover:brightness-110"
+    >
+      <span className="absolute inset-1 rounded-full bg-black/70" />
 
-        return (
-          <button
-            key={value}
-            type="button"
-            onClick={() => onChange(value)}
-            aria-label={value === 'pt' ? 'Mudar para português' : 'Switch to English'}
-            className={`flex h-7 w-7 cursor-pointer items-center justify-center rounded-full border text-[14px] transition-all duration-200 hover:scale-105 ${
-              active
-                ? 'border-black bg-[#f5ff00] shadow-[2px_2px_0_#000]'
-                : 'border-zinc-700 bg-zinc-900 text-zinc-500 hover:border-[#f5ff00] hover:text-[#f5ff00]'
-            }`}
-          >
-            <span aria-hidden="true">{flag}</span>
-          </button>
-        )
-      })}
-    </div>
+      <span
+        className="absolute top-1 h-6 w-6 rounded-full bg-[#f5ff00] transition-transform duration-300 ease-out"
+        style={{ transform: isPt ? 'translateX(0)' : 'translateX(100%)' }}
+      />
+
+      <span className="absolute inset-x-0 z-10 flex items-center justify-between px-2">
+        <img
+          src="https://flagcdn.com/w40/br.png"
+          alt="Brasil"
+          className={`h-2 w-2 rounded-full object-cover transition-all duration-300 ${
+            isPt ? 'scale-110 opacity-100' : 'scale-75 opacity-60'
+          }`}
+        />
+        <img
+          src="https://flagcdn.com/w40/us.png"
+          alt="EUA"
+          className={`h-2 w-2 rounded-full object-cover transition-all duration-300 ${
+            isPt ? 'scale-75 opacity-60' : 'scale-110 opacity-100'
+          }`}
+        />
+      </span>
+
+      <span
+        className="absolute top-1 z-20 flex h-6 w-6 items-center justify-center overflow-hidden rounded-full transition-all duration-300 ease-out"
+        style={{ transform: isPt ? 'translateX(0)' : 'translateX(100%)' }}
+      >
+        <img
+          src={isPt ? 'https://flagcdn.com/w40/br.png' : 'https://flagcdn.com/w40/us.png'}
+          alt={isPt ? 'Brasil' : 'Estados Unidos'}
+          className="h-[80%] w-[80%] rounded-full object-cover"
+        />
+      </span>
+    </button>
   )
 }
 
