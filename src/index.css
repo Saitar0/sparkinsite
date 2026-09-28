@@ -110,8 +110,8 @@ img {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  min-width: 0.82em;
-  padding: 0.02em 0.08em;
+  min-width: 0.96em;
+  padding: 0.08em 0.14em 0.04em;
   font-family: Impact, Haettenschweiler, 'Arial Black', sans-serif;
   font-size: clamp(2.1rem, 8vw, 3rem);
   line-height: 0.8;
