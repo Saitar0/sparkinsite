@@ -1,13 +1,61 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/jpeg" href="https://6zdlkwedureb9c8l.public.blob.vercel-storage.com/423e6f1f-ccb0-491d-8141-e472c77c74aa.jpeg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>sparkinsite</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      (() => {
+        const instagram = 'https://www.instagram.com/sousparkin/'
+        const yellow = '#f5ff00'
+        const intro = 'Olá! Eu sou o Sparkin, editor de video e criador de conteúdo! Sou um editor que trabalha com três ferramentas, AE, PR e Davinci Resolve. Meu principal objetivo é lhe entregar videos com ritmo, energia e tema de acordo com sua preferência!'
+
+        function updateContent() {
+          // Corrige somente a versão que ainda aponta para o identificador antigo.
+          document.querySelectorAll('a[href="https://x.com/osparkin"]').forEach((link) => {
+            link.href = 'https://x.com/zssparkin'
+            if (link.textContent.trim() === '@osparkin') link.textContent = '@zssparkin'
+          })
+
+          // Atualiza o texto de apresentação nas versões desktop e mobile.
+          document.querySelectorAll('p').forEach((paragraph) => {
+            if (!paragraph.textContent.includes('Sou o Sparkin, editor de vídeo')) return
+            paragraph.innerHTML = `${intro.slice(0, intro.lastIndexOf('sua preferência'))}<span style="color:${yellow}">sua preferência</span>!`
+          })
+
+          // Destaca a frase de contato em amarelo.
+          document.querySelectorAll('p').forEach((paragraph) => {
+            if (paragraph.textContent.includes('Estou em busca de novas pessoas interessadas em meu serviço')) {
+              paragraph.style.color = yellow
+            }
+          })
+
+          // Acrescenta o Instagram uma única vez em cada grupo de redes sociais.
+          document.querySelectorAll('nav, footer').forEach((group) => {
+            if (group.querySelector('a[href="' + instagram + '"]')) return
+            const link = document.createElement('a')
+            link.href = instagram
+            link.target = '_blank'
+            link.rel = 'noreferrer'
+            link.textContent = 'Instagram'
+            link.className = 'transition-colors duration-200 hover:text-[#f5ff00]'
+            if (group.tagName === 'FOOTER') {
+              link.className += ' inline-flex min-h-[48px] items-center justify-center rounded-full border border-zinc-700 bg-zinc-900 px-4 py-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-100'
+            }
+            const container = group.querySelector('nav, footer > div > div:last-child') || group
+            container.appendChild(link)
+          })
+        }
+
+        const observer = new MutationObserver(updateContent)
+        observer.observe(document.getElementById('root'), { childList: true, subtree: true })
+        updateContent()
+      })()
+    </script>
   </body>
 </html>
