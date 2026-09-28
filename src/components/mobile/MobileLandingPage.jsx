@@ -36,8 +36,8 @@ const pricingOptions = {
     { label: 'Projetos maiores', value: 'Preço negociável' },
   ],
   en: [
-    { label: '10 min videos', value: 'R$ 200 / R$ 150' },
-    { label: 'Shorter parts', value: 'R$ 90 / R$ 75' },
+    { label: '10 min videos', value: '$200 / $150' },
+    { label: 'Shorter parts', value: '$90 / $75' },
     { label: 'Larger projects', value: 'Negotiable price' },
   ],
 }
