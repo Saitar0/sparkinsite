@@ -177,13 +177,13 @@ export default function MobileLandingPage() {
             </div>
           </div>
 
-          <div className="space-y-4">
+          <div className="mobile-scrollbar-none flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2">
             {mobileProjects.map((project) => (
               <button
                 key={project.title}
                 type="button"
                 onClick={() => setSelectedProject(project)}
-                className="group relative block w-full overflow-hidden rounded-[1.4rem] border border-zinc-800 bg-zinc-950 text-left"
+                className="group relative block w-[82%] shrink-0 snap-center overflow-hidden rounded-[1.4rem] border border-zinc-800 bg-zinc-950 text-left"
               >
                 <img src={project.thumb} alt={project.title} className="h-[260px] w-full object-cover contrast-125" loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
