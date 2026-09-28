@@ -12,12 +12,12 @@ const thumbFour = new URL('../imagens/videos/a MELHOR e a PIOR NOTA de cada FRAN
 const thumbFive = new URL('../imagens/videos/A DECADÊNCIA dos jogos LEGO [ED_Xl8jK6Ho].webp', import.meta.url).href
 const thumbSix = new URL('../imagens/videos/AZUN INTRO METAMORFOSE (@ZSSPARKIN) [J4eBF25OXT0].jpeg', import.meta.url).href
 
-const videoOne = new URL('https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/gmod.mp4', import.meta.url).href
-const videoTwo = new URL('https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/valorantcomamigos.mp4', import.meta.url).href
-const videoThree = new URL('https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/issonaoeumaia.mp4', import.meta.url).href
-const videoFour = new URL('https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/a%20MELHOR%20e%20a%20PIOR%20NOTA%20de%20cada%20FRANQUIA.mp4', import.meta.url).href
-const videoFive = new URL('https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/A%20DECAD%C3%8ANCIA%20dos%20jogos%20LEGO.mp4', import.meta.url).href
-const videoSix = new URL('https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/AZUN%20INTRO%20METAMORFOSE%20%28%40ZSSPARKIN%29.mp4', import.meta.url).href
+const videoOne = new URL('https://6zdlkwedureb9c8l.public.blob.vercel-storage.com/gmod_compressed.mp4', import.meta.url).href
+const videoTwo = new URL('https://6zdlkwedureb9c8l.public.blob.vercel-storage.com/valorantcomamigos_compressed.mp4', import.meta.url).href
+const videoThree = new URL('https://6zdlkwedureb9c8l.public.blob.vercel-storage.com/issonaoeumaia_compressed.mp4', import.meta.url).href
+const videoFour = new URL('https://6zdlkwedureb9c8l.public.blob.vercel-storage.com/a%20MELHOR%20e%20a%20PIOR%20NOTA%20de%20cada%20FRANQUIA_compressed.mp4', import.meta.url).href
+const videoFive = new URL('https://6zdlkwedureb9c8l.public.blob.vercel-storage.com/A%20DECAD%C3%8ANCIA%20dos%20jogos%20LEGO_compressed_compressed.mp4', import.meta.url).href
+const videoSix = new URL('https://6zdlkwedureb9c8l.public.blob.vercel-storage.com/AZUN%20INTRO%20METAMORFOSE%20%28%40ZSSPARKIN%29_compressed.mp4', import.meta.url).href
 
 const letters = ['S', 'P', 'A', 'R', 'K', 'I', 'N']
 
@@ -215,8 +215,8 @@ function DesktopLandingPage() {
             </h1>
 
             <p className="max-w-xl text-base leading-7 text-zinc-300 sm:text-lg">
-              sou Sparkin, editor de vídeo e criador de conteúdo. Tenho experiência em DaVinci, After Effects e Premiere,
-              <span className="text-[#f5ff00]"> e crio video com a energia, ritmo e identidade visual de sua preferencia!</span>
+              Sou o Sparkin, editor de vídeo e criador de conteúdo. Tenho experiência em DaVinci, After Effects e Premiere.
+              <span className="text-[#f5ff00]">  E crio video com a energia, ritmo e identidade visual de sua preferência!</span>
             </p>
 
             <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row">
@@ -440,7 +440,7 @@ function DesktopLandingPage() {
               editor de vídeo e criador de conteúdo.
             </h2>
             <p className="mt-5 max-w-xl text-base leading-7 text-zinc-300">
-              Sou o Sparkin, editor de vídeo e criador de conteúdo. Para criar videos no seu estilo de preferencia, meu foco é entregar edições com o maximo de qualidade que minha habilidade permite, e sem contar, com a comunicação de trabalho, aonde em minha opinião, é minha segunda ferramenta mais forte de trabalho!
+              Crio videos desde os 10 anos de idade, e ao longo do tempo adquiri cada vez mais habilidade na edição de video com muito treino e videos próprios para os meus canais no Youtube. Mas agora optei por fazer disso meu trabalho, e além de projetos pessoais, trabalhei para pessoas como "Recanto Lenhoso", "Azun" e obviamente, meu canal, "Eu o Sparkin". Estou em busca de mais pessoas interessadas em meu serviço!
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               {services.map((service) => (
