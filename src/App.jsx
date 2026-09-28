@@ -24,6 +24,7 @@ const letters = ['S', 'P', 'A', 'R', 'K', 'I', 'N']
 const socials = [
   { label: 'Twitter', href: 'https://x.com/zssparkin' },
   { label: 'TikTok', href: 'https://www.tiktok.com/@sousparkin' },
+  { label: 'Youtube', href: 'https://www.youtube.com/@osparkin' },
   { label: 'E-mail', href: 'https://mail.google.com/mail/?view=cm&fs=1&to=sparkineditor.contato@gmail.com&su=Pedido%20de%20edi%C3%A7%C3%A3o&body=Ol%C3%A1!%20Tudo%20bem%3F%20Gostaria%20de%20pedir%20uma%20edi%C3%A7%C3%A3o%20sua.%20Pode%20me%20ajudar%3F' },
 ]
 

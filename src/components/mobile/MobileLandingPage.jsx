@@ -9,17 +9,18 @@ const mobileThumbFour = new URL('../../../imagens/videos/a MELHOR e a PIOR NOTA 
 const mobileThumbFive = new URL('../../../imagens/videos/A DECADÊNCIA dos jogos LEGO [ED_Xl8jK6Ho].webp', import.meta.url).href
 const mobileThumbSix = new URL('../../../imagens/videos/AZUN INTRO METAMORFOSE (@ZSSPARKIN) [J4eBF25OXT0].jpeg', import.meta.url).href
 
-const videoOne = new URL('../../../imagens/videos/gmod.mp4', import.meta.url).href
-const videoTwo = new URL('../../../imagens/videos/valorantcomamigos.mp4', import.meta.url).href
-const videoThree = new URL('../../../imagens/videos/issonaoeumaia.mp4', import.meta.url).href
-const videoFour = new URL('../../../imagens/videos/a MELHOR e a PIOR NOTA de cada FRANQUIA.mp4', import.meta.url).href
-const videoFive = new URL('../../../imagens/videos/A DECADÊNCIA dos jogos LEGO.mp4', import.meta.url).href
-const videoSix = new URL('../../../imagens/videos/AZUN INTRO METAMORFOSE (@ZSSPARKIN).mp4', import.meta.url).href
+const videoOne = new URL('https://6zdlkwedureb9c8l.public.blob.vercel-storage.com/gmod_compressed.mp4', import.meta.url).href
+const videoTwo = new URL('https://6zdlkwedureb9c8l.public.blob.vercel-storage.com/valorantcomamigos_compressed.mp4', import.meta.url).href
+const videoThree = new URL('https://6zdlkwedureb9c8l.public.blob.vercel-storage.com/issonaoeumaia_compressed.mp4', import.meta.url).href
+const videoFour = new URL('https://6zdlkwedureb9c8l.public.blob.vercel-storage.com/a%20MELHOR%20e%20a%20PIOR%20NOTA%20de%20cada%20FRANQUIA_compressed.mp4', import.meta.url).href
+const videoFive = new URL('https://6zdlkwedureb9c8l.public.blob.vercel-storage.com/A%20DECAD%C3%8ANCIA%20dos%20jogos%20LEGO_compressed_compressed.mp4', import.meta.url).href
+const videoSix = new URL('https://6zdlkwedureb9c8l.public.blob.vercel-storage.com/AZUN%20INTRO%20METAMORFOSE%20%28%40ZSSPARKIN%29_compressed.mp4', import.meta.url).href
 
 const socials = [
   { label: 'Twitter', href: 'https://x.com/osparkin' },
   { label: 'TikTok', href: 'https://www.tiktok.com/@sousparkin' },
   { label: 'E-mail', href: 'https://mail.google.com/mail/?view=cm&fs=1&to=sparkineditor.contato@gmail.com&su=Pedido%20de%20edi%C3%A7%C3%A3o&body=Ol%C3%A1!%20Tudo%20bem%3F%20Gostaria%20de%20pedir%20uma%20edi%C3%A7%C3%A3o%20sua.%20Pode%20me%20ajudar%3F' },
+  { label: 'Youtube', href: 'https://www.youtube.com/@osparkin' },
 ]
 
 const services = ['Edição de vídeo', 'Criador de conteúdo', 'Long-form']
@@ -143,8 +144,9 @@ export default function MobileLandingPage() {
             ))}
           </h1>
 
-          <p className="mx-auto max-w-sm text-sm leading-6 text-zinc-300">
-            sou Sparkin, editor de vídeo e criador de conteúdo. Crio edições com energia, ritmo e identidade visual que fazem o conteúdo se destacar.
+          <p className="max-w-xl text-base leading-7 text-zinc-300 sm:text-lg">
+              Sou o Sparkin, editor de vídeo e criador de conteúdo. Tenho experiência em DaVinci, After Effects e Premiere.
+              <span className="text-[#f5ff00]">  E crio video com a energia, ritmo e identidade visual de sua preferência!</span>
           </p>
 
           <div className="mt-6 flex flex-col gap-3">
@@ -260,8 +262,8 @@ export default function MobileLandingPage() {
           <div className="grunge-panel rounded-[1.5rem] border border-zinc-800 bg-zinc-950 p-5">
             <p className="mb-2 text-[8px] font-medium uppercase tracking-[0.28em] text-[#f5ff00]">Sobre</p>
             <h2 className="text-2xl font-black uppercase tracking-[-0.06em] text-white">editor de vídeo e criador de conteúdo.</h2>
-            <p className="mt-4 text-sm leading-6 text-zinc-300">
-              Sou o Sparkin, editor de vídeo e criador de conteúdo. Meu foco é entregar edições com qualidade, ritmo e comunicação clara, criando vídeos que se conectam com o público e fortalecem a identidade do canal.
+            <p className="mt-5 max-w-xl text-base leading-7 text-zinc-300">
+              Crio videos desde os 10 anos de idade, e ao longo do tempo adquiri cada vez mais habilidade na edição de video com muito treino e videos próprios para os meus canais no Youtube. Mas agora optei por fazer disso meu trabalho, e além de projetos pessoais, trabalhei para pessoas como "Recanto Lenhoso", "Azun" e obviamente, meu canal, "Eu o Sparkin". Estou em busca de mais pessoas interessadas em meu serviço!
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               {services.map((service) => (
