@@ -24,13 +24,23 @@ const socials = [
   { label: 'Instagram', href: 'https://www.instagram.com/sousparkin/' },
 ]
 
-const services = ['Edição de vídeo', 'Criador de conteúdo', 'Long-form']
+const serviceOptions = {
+  pt: ['Edição de vídeo', 'Criador de conteúdo', 'Long-form'],
+  en: ['Video editing', 'Content creator', 'Long-form'],
+}
 
-const pricing = [
-  { label: 'Vídeos 10 min', value: 'R$ 200 / R$ 150' },
-  { label: 'Partes menores', value: 'R$ 90 / R$ 75' },
-  { label: 'Projetos maiores', value: 'Preço negociável' },
-]
+const pricingOptions = {
+  pt: [
+    { label: 'Vídeos 10 min', value: 'R$ 200 / R$ 150' },
+    { label: 'Partes menores', value: 'R$ 90 / R$ 75' },
+    { label: 'Projetos maiores', value: 'Preço negociável' },
+  ],
+  en: [
+    { label: '10 min videos', value: 'R$ 200 / R$ 150' },
+    { label: 'Shorter parts', value: 'R$ 90 / R$ 75' },
+    { label: 'Larger projects', value: 'Negotiable price' },
+  ],
+}
 
 const mobileProjects = [
   {
@@ -82,7 +92,7 @@ const translations = {
     contact: 'Contato',
     requestQuote: 'Solicitar orçamento',
     selectedWork: 'meus videos',
-    selectedWorkLabel: 'selected work',
+    selectedWorkLabel: 'trabalhos selecionados',
     partnership: 'para outros youtubers',
     partnershipTitle: 'trabalhos em parceria',
     about: 'Sobre',
@@ -96,6 +106,7 @@ const translations = {
     secondaryCta: 'Sobre',
     available: 'Disponível para projetos',
     preview: 'preview',
+    openVideo: 'Abrir vídeo de',
   },
   en: {
     tag: 'video editor',
@@ -116,6 +127,7 @@ const translations = {
     secondaryCta: 'About',
     available: 'Available for projects',
     preview: 'preview',
+    openVideo: 'Open video of',
   },
 }
 
@@ -177,8 +189,8 @@ export default function MobileLandingPage({ language, setLanguage }) {
           <div className="flex items-center gap-2.5">
             <img src={avatar} alt="Perfil do editor" className="h-10 w-10 rounded-full border-2 border-[#f5ff00] object-cover" loading="lazy" />
             <div className="leading-none">
-              <p className="text-[8px] font-semibold uppercase tracking-[0.28em] text-[#f5ff00]">Eu o Sparkin</p>
-              <p className="mt-1 text-[7px] uppercase tracking-[0.25em] text-zinc-400">editor</p>
+              <p className="text-[8px] font-semibold uppercase tracking-[0.28em] text-[#f5ff00]">{language === 'pt' ? 'Eu o Sparkin' : 'I am Sparkin'}</p>
+              <p className="mt-1 text-[7px] uppercase tracking-[0.25em] text-zinc-400">{language === 'pt' ? 'editor' : 'editor'}</p>
             </div>
           </div>
 
@@ -339,7 +351,7 @@ export default function MobileLandingPage({ language, setLanguage }) {
               {t.aboutText}
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
-              {services.map((service) => (
+              {serviceOptions[language].map((service) => (
                 <span key={service} className="inline-flex items-center rounded-full border border-[#f5ff00]/60 bg-[#f5ff00]/5 px-2.5 py-1.5 text-[8px] font-semibold uppercase tracking-[0.2em] text-[#f5ff00]">
                   {service}
                 </span>
@@ -350,7 +362,7 @@ export default function MobileLandingPage({ language, setLanguage }) {
           <div className="grunge-panel rounded-[1.5rem] border border-zinc-800 bg-[#f5ff00] p-4 text-black">
             <p className="mb-3 text-[8px] font-black uppercase tracking-[0.32em] text-black/80">{t.pricingTitle}</p>
             <div className="space-y-3">
-              {pricing.map((item) => (
+              {pricingOptions[language].map((item) => (
                 <div key={item.label} className="border-b border-black/20 pb-2 last:border-0 last:pb-0">
                   <p className="text-[8px] uppercase tracking-[0.2em] text-black/70">{item.label}</p>
                   <p className="mt-1 text-lg font-black uppercase tracking-[-0.05em]">{item.value}</p>
@@ -384,7 +396,7 @@ export default function MobileLandingPage({ language, setLanguage }) {
                 type="button"
                 onClick={() => setSelectedProject(null)}
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-700 bg-zinc-900 text-lg text-white"
-                aria-label="Fechar player"
+                aria-label={language === 'pt' ? 'Fechar player' : 'Close player'}
               >
                 ×
               </button>

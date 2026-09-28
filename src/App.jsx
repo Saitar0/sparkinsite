@@ -26,19 +26,26 @@ const socials = [
   { label: 'TikTok', href: 'https://www.tiktok.com/@sousparkin' },
   { label: 'Youtube', href: 'https://www.youtube.com/@osparkin' },
   { label: 'E-mail', href: 'https://mail.google.com/mail/?view=cm&fs=1&to=sparkineditor.contato@gmail.com&su=Pedido%20de%20edi%C3%A7%C3%A3o&body=Ol%C3%A1!%20Tudo%20bem%3F%20Gostaria%20de%20pedir%20uma%20edi%C3%A7%C3%A3o%20sua.%20Pode%20me%20ajudar%3F' },
+  { label: 'Instagram', href: 'https://www.instagram.com/sousparkin/' },
 ]
 
-const services = [
-  'Edição de vídeo',
-  'Criador de conteúdo',
-  'Long-form',
-]
+const serviceOptions = {
+  pt: ['Edição de vídeo', 'Criador de conteúdo', 'Long-form'],
+  en: ['Video editing', 'Content creator', 'Long-form'],
+}
 
-const pricing = [
-  { label: 'Vídeos 10 min', value: 'R$ 200 / R$ 150' },
-  { label: 'Partes menores', value: 'R$ 90 / R$ 75' },
-  { label: 'Projetos maiores', value: 'Preço negociável' },
-]
+const pricingOptions = {
+  pt: [
+    { label: 'Vídeos 10 min', value: 'R$ 200 / R$ 150' },
+    { label: 'Partes menores', value: 'R$ 90 / R$ 75' },
+    { label: 'Projetos maiores', value: 'Preço negociável' },
+  ],
+  en: [
+    { label: '10 min videos', value: 'R$ 200 / R$ 150' },
+    { label: 'Shorter parts', value: 'R$ 90 / R$ 75' },
+    { label: 'Larger projects', value: 'Negotiable price' },
+  ],
+}
 
 const projects = [
   {
@@ -104,6 +111,7 @@ const translations = {
     secondaryCta: 'Sobre',
     available: 'Disponível para projetos',
     preview: 'preview',
+    openVideo: 'Abrir vídeo de',
   },
   en: {
     tag: 'video editor',
@@ -124,6 +132,7 @@ const translations = {
     secondaryCta: 'About',
     available: 'Available for projects',
     preview: 'preview',
+    openVideo: 'Open video of',
   },
 }
 
@@ -222,9 +231,9 @@ function DesktopLandingPage({ language, setLanguage }) {
             />
             <div>
               <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#f5ff00]">
-                Eu o Sparkin
+                {language === 'pt' ? 'Eu o Sparkin' : 'I am Sparkin'}
               </p>
-              <p className="text-[9px] uppercase tracking-[0.25em] text-zinc-400">editor</p>
+              <p className="text-[9px] uppercase tracking-[0.25em] text-zinc-400">{language === 'pt' ? 'editor' : 'editor'}</p>
             </div>
           </div>
 
@@ -264,7 +273,7 @@ function DesktopLandingPage({ language, setLanguage }) {
           >
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-zinc-700 bg-zinc-900/80 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.28em] text-zinc-200">
               <span className="inline-block h-2 w-2 rounded-full bg-[#f5ff00]" />
-              editor de vídeo
+              {t.tag}
             </div>
 
             <h1 className="mb-5 font-black uppercase leading-[0.8] tracking-[-0.08em] text-white">
@@ -289,8 +298,8 @@ function DesktopLandingPage({ language, setLanguage }) {
             </h1>
 
             <p className="max-w-xl text-base leading-7 text-zinc-300 sm:text-lg">
-              Sou o Sparkin, editor de vídeo e criador de conteúdo. Tenho experiência em DaVinci, After Effects e Premiere.
-              <span className="text-[#f5ff00]">  E crio video com a energia, ritmo e identidade visual de sua preferência!</span>
+              {t.heroTitle}
+              <span className="text-[#f5ff00]"> {t.heroAccent}</span>
             </p>
 
             <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row">
@@ -300,7 +309,7 @@ function DesktopLandingPage({ language, setLanguage }) {
                 whileTap={{ scale: 0.98 }}
                 className="magnetic-button group inline-flex items-center justify-center rounded-none border-2 border-black bg-[#f5ff00] px-6 py-3 text-sm font-black uppercase tracking-[0.22em] text-black shadow-[8px_8px_0_#000] transition-all duration-300"
               >
-                <span className="relative z-10">Ver Portfólio</span>
+                <span className="relative z-10">{t.primaryCta}</span>
               </motion.a>
 
               <motion.a
@@ -308,7 +317,7 @@ function DesktopLandingPage({ language, setLanguage }) {
                 whileHover={{ y: -2 }}
                 className="inline-flex items-center justify-center border border-zinc-700 bg-transparent px-6 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-zinc-100 transition hover:border-[#f5ff00] hover:text-[#f5ff00]"
               >
-                Sobre
+                {t.secondaryCta}
               </motion.a>
             </div>
           </motion.div>
@@ -327,7 +336,7 @@ function DesktopLandingPage({ language, setLanguage }) {
                 className="relative h-[440px] w-full rounded-[1.5rem] object-cover contrast-125"
               />
               <div className="absolute inset-x-8 bottom-8 rounded-full border border-[#f5ff00] bg-black/80 px-4 py-3 text-center backdrop-blur-sm">
-                <p className="text-[10px] uppercase tracking-[0.38em] text-[#f5ff00]">Disponível para projetos</p>
+                <p className="text-[10px] uppercase tracking-[0.38em] text-[#f5ff00]">{t.available}</p>
               </div>
             </div>
           </motion.div>
@@ -406,7 +415,7 @@ function DesktopLandingPage({ language, setLanguage }) {
                       setSelectedProject(project)
                     }}
                     className="flex h-11 w-11 items-center justify-center rounded-full border border-white/40 bg-black/45 text-lg text-white backdrop-blur-sm transition group-hover:border-[#f5ff00] group-hover:text-[#f5ff00]"
-                    aria-label={`Abrir vídeo de ${project.title}`}
+                    aria-label={`${t.openVideo} ${project.title}`}
                   >
                     ▶
                   </button>
@@ -489,7 +498,7 @@ function DesktopLandingPage({ language, setLanguage }) {
                         setSelectedProject(project)
                       }}
                       className="flex h-11 w-11 items-center justify-center rounded-full border border-white/40 bg-black/45 text-lg text-white backdrop-blur-sm transition group-hover:border-[#f5ff00] group-hover:text-[#f5ff00]"
-                      aria-label={`Abrir vídeo de ${project.title}`}
+                      aria-label={`${t.openVideo} ${project.title}`}
                     >
                       ▶
                     </button>
@@ -517,7 +526,7 @@ function DesktopLandingPage({ language, setLanguage }) {
               {t.aboutText}
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              {services.map((service) => (
+              {serviceOptions[language].map((service) => (
                 <span
                   key={service}
                   className="inline-flex items-center rounded-full border border-[#f5ff00]/60 bg-[#f5ff00]/5 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#f5ff00]"
@@ -531,7 +540,7 @@ function DesktopLandingPage({ language, setLanguage }) {
           <div className="grunge-panel rounded-[2rem] border border-zinc-800 bg-[#f5ff00] p-5 text-black sm:p-6">
             <p className="mb-4 text-[10px] font-black uppercase tracking-[0.32em] text-black/80">{t.pricingTitle}</p>
             <div className="space-y-3">
-              {pricing.map((item) => (
+              {pricingOptions[language].map((item) => (
                 <div key={item.label} className="border-b border-black/20 pb-3 last:border-0 last:pb-0">
                   <p className="text-[10px] uppercase tracking-[0.22em] text-black/70">{item.label}</p>
                   <p className="mt-1 text-lg font-black uppercase tracking-[-0.05em]">{item.value}</p>
@@ -573,7 +582,7 @@ function DesktopLandingPage({ language, setLanguage }) {
                 type="button"
                 onClick={closeSelectedProject}
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-700 bg-zinc-900 text-lg text-white transition hover:border-[#f5ff00] hover:text-[#f5ff00]"
-                aria-label="Fechar player"
+                aria-label={language === 'pt' ? 'Fechar player' : 'Close player'}
               >
                 ×
               </button>
