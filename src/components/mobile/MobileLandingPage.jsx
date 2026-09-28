@@ -75,6 +75,74 @@ const collabProjects = [
 
 const tools = ['Premiere', 'After Effects', 'DaVinci Resolve']
 
+const translations = {
+  pt: {
+    tag: 'editor de vídeo',
+    contact: 'Contato',
+    requestQuote: 'Solicitar orçamento',
+    selectedWork: 'meus videos',
+    selectedWorkLabel: 'selected work',
+    partnership: 'para outros youtubers',
+    partnershipTitle: 'trabalhos em parceria',
+    about: 'Sobre',
+    aboutTitle: 'editor de vídeo e criador de conteúdo.',
+    aboutText:
+      'Crio videos desde os 10 anos de idade, e ao longo do tempo adquiri cada vez mais habilidade na edição de video com muito treino e videos próprios para os meus canais no Youtube. Mas agora optei por fazer disso meu trabalho, e além de projetos pessoais, trabalhei para pessoas como "Recanto Lenhoso", "Azun" e obviamente, meu canal, "Eu o Sparkin". Estou em busca de mais pessoas interessadas em meu serviço!',
+    pricingTitle: 'Preços base',
+    heroTitle: 'Sou o Sparkin, editor de vídeo e criador de conteúdo. Tenho experiência em DaVinci, After Effects e Premiere.',
+    heroAccent: 'E crio video com a energia, ritmo e identidade visual de sua preferência!',
+    primaryCta: 'Ver Portfólio',
+    secondaryCta: 'Sobre',
+    available: 'Disponível para projetos',
+    preview: 'preview',
+  },
+  en: {
+    tag: 'video editor',
+    contact: 'Contact',
+    requestQuote: 'Request quote',
+    selectedWork: 'my videos',
+    selectedWorkLabel: 'selected work',
+    partnership: 'for other creators',
+    partnershipTitle: 'partnership projects',
+    about: 'About',
+    aboutTitle: 'video editor and content creator.',
+    aboutText:
+      'I have been creating videos since I was 10 years old, and over time I developed a strong editing skill through constant practice and my own YouTube content. I eventually chose to turn it into my profession, and in addition to personal projects, I have worked with creators such as "Recanto Lenhoso", "Azun" and my own channel, "Eu o Sparkin". I am looking for more people interested in my work!',
+    pricingTitle: 'Base prices',
+    heroTitle: 'I am Sparkin, a video editor and content creator. I have experience in DaVinci, After Effects and Premiere.',
+    heroAccent: 'I create videos with the energy, rhythm and visual identity you want!',
+    primaryCta: 'View Portfolio',
+    secondaryCta: 'About',
+    available: 'Available for projects',
+    preview: 'preview',
+  },
+}
+
+function LanguageToggle({ language, onChange }) {
+  const isPt = language === 'pt'
+
+  return (
+    <button
+      type="button"
+      onClick={() => onChange(isPt ? 'en' : 'pt')}
+      aria-label={isPt ? 'Switch to English' : 'Mudar para português'}
+      className="relative inline-flex h-9 w-16 items-center rounded-full border border-[#f5ff00]/70 bg-black/70 p-1 shadow-[0_0_0_2px_rgba(245,255,0,0.12)]"
+    >
+      <span className="flex w-full items-center justify-between px-1 text-[8px] font-black uppercase tracking-[0.18em] text-zinc-400">
+        <span>PT</span>
+        <span>EN</span>
+      </span>
+      <span
+        className={`absolute top-1 flex h-7 w-7 items-center justify-center rounded-full border border-black bg-[#f5ff00] text-[14px] shadow-[2px_2px_0_#000] transition-all duration-200 ${
+          isPt ? 'left-1' : 'left-[calc(100%-2.05rem)]'
+        }`}
+      >
+        {isPt ? '🇧🇷' : '🇺🇸'}
+      </span>
+    </button>
+  )
+}
+
 const fadeUp = {
   hidden: { opacity: 0, y: 18 },
   visible: {
@@ -84,9 +152,10 @@ const fadeUp = {
   },
 }
 
-export default function MobileLandingPage() {
+export default function MobileLandingPage({ language, setLanguage }) {
   const [selectedProject, setSelectedProject] = useState(null)
   const modalVideoRef = useRef(null)
+  const t = translations[language]
 
   useEffect(() => {
     if (!selectedProject || !modalVideoRef.current) return
@@ -112,12 +181,15 @@ export default function MobileLandingPage() {
             </div>
           </div>
 
-          <a
-            href="#contact"
-            className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-[#f5ff00] bg-[#f5ff00] px-3.5 py-2 text-[9px] font-black uppercase tracking-[0.18em] text-black"
-          >
-            Contato
-          </a>
+          <div className="flex items-center gap-2">
+            <LanguageToggle language={language} onChange={setLanguage} />
+            <a
+              href="#contact"
+              className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-[#f5ff00] bg-[#f5ff00] px-3.5 py-2 text-[9px] font-black uppercase tracking-[0.18em] text-black"
+            >
+              {t.contact}
+            </a>
+          </div>
         </div>
       </header>
 
@@ -130,7 +202,7 @@ export default function MobileLandingPage() {
         >
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-zinc-700 bg-zinc-900/80 px-3 py-1.5 text-[8px] font-medium uppercase tracking-[0.26em] text-zinc-200">
             <span className="inline-block h-2 w-2 rounded-full bg-[#f5ff00]" />
-            editor de vídeo
+            {t.tag}
           </div>
 
           <h1 className="mb-4 flex justify-center gap-1 font-black uppercase leading-[0.8] tracking-[-0.08em] text-white">
@@ -145,8 +217,8 @@ export default function MobileLandingPage() {
           </h1>
 
           <p className="max-w-xl text-base leading-7 text-zinc-300 sm:text-lg">
-              Sou o Sparkin, editor de vídeo e criador de conteúdo. Tenho experiência em DaVinci, After Effects e Premiere.
-              <span className="text-[#f5ff00]">  E crio video com a energia, ritmo e identidade visual de sua preferência!</span>
+              {t.heroTitle}
+              <span className="text-[#f5ff00]"> {t.heroAccent}</span>
           </p>
 
           <div className="mt-6 flex flex-col gap-3">
@@ -154,14 +226,14 @@ export default function MobileLandingPage() {
               href="#portfolio"
               className="inline-flex min-h-[48px] items-center justify-center rounded-none border-2 border-black bg-[#f5ff00] px-5 py-3 text-[10px] font-black uppercase tracking-[0.22em] text-black shadow-[6px_6px_0_#000]"
             >
-              Ver Portfólio
+              {t.primaryCta}
             </a>
 
             <a
               href="#about"
               className="inline-flex min-h-[48px] items-center justify-center border border-zinc-700 bg-transparent px-5 py-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-zinc-100"
             >
-              Sobre
+              {t.secondaryCta}
             </a>
           </div>
         </motion.section>
@@ -175,7 +247,7 @@ export default function MobileLandingPage() {
           <div className="grunge-panel overflow-hidden rounded-[1.7rem] border border-zinc-700 bg-zinc-950 p-3 shadow-[0_0_0_2px_rgba(245,255,0,0.08)]">
             <img src={avatar} alt="Foto do editor" className="h-[360px] w-full rounded-[1.2rem] object-cover contrast-125" loading="lazy" />
             <div className="mt-3 rounded-full border border-[#f5ff00] bg-black/80 px-3 py-2 text-center">
-              <p className="text-[8px] uppercase tracking-[0.32em] text-[#f5ff00]">Disponível para projetos</p>
+              <p className="text-[8px] uppercase tracking-[0.32em] text-[#f5ff00]">{t.available}</p>
             </div>
           </div>
         </motion.section>
@@ -190,8 +262,8 @@ export default function MobileLandingPage() {
         >
           <div className="mb-4 flex items-center justify-between gap-3">
             <div>
-              <p className="mb-2 text-[8px] font-medium uppercase tracking-[0.28em] text-[#f5ff00]">selected work</p>
-              <h2 className="text-2xl font-black uppercase tracking-[-0.06em] text-white">meus videos</h2>
+              <p className="mb-2 text-[8px] font-medium uppercase tracking-[0.28em] text-[#f5ff00]">{t.selectedWorkLabel}</p>
+              <h2 className="text-2xl font-black uppercase tracking-[-0.06em] text-white">{t.selectedWork}</h2>
             </div>
           </div>
 
@@ -228,8 +300,8 @@ export default function MobileLandingPage() {
           className="mt-10"
         >
           <div className="mb-4">
-            <p className="mb-2 text-[8px] font-medium uppercase tracking-[0.28em] text-[#f5ff00]">para outros youtubers</p>
-            <h2 className="text-2xl font-black uppercase tracking-[-0.06em] text-white">trabalhos em parceria</h2>
+            <p className="mb-2 text-[8px] font-medium uppercase tracking-[0.28em] text-[#f5ff00]">{t.partnership}</p>
+            <h2 className="text-2xl font-black uppercase tracking-[-0.06em] text-white">{t.partnershipTitle}</h2>
           </div>
 
           <div className="mobile-scrollbar-none flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2">
@@ -260,10 +332,10 @@ export default function MobileLandingPage() {
           className="mt-10 space-y-4"
         >
           <div className="grunge-panel rounded-[1.5rem] border border-zinc-800 bg-zinc-950 p-5">
-            <p className="mb-2 text-[8px] font-medium uppercase tracking-[0.28em] text-[#f5ff00]">Sobre</p>
-            <h2 className="text-2xl font-black uppercase tracking-[-0.06em] text-white">editor de vídeo e criador de conteúdo.</h2>
+            <p className="mb-2 text-[8px] font-medium uppercase tracking-[0.28em] text-[#f5ff00]">{t.about}</p>
+            <h2 className="text-2xl font-black uppercase tracking-[-0.06em] text-white">{t.aboutTitle}</h2>
             <p className="mt-5 max-w-xl text-base leading-7 text-zinc-300">
-              Crio videos desde os 10 anos de idade, e ao longo do tempo adquiri cada vez mais habilidade na edição de video com muito treino e videos próprios para os meus canais no Youtube. Mas agora optei por fazer disso meu trabalho, e além de projetos pessoais, trabalhei para pessoas como "Recanto Lenhoso", "Azun" e obviamente, meu canal, "Eu o Sparkin". Estou em busca de mais pessoas interessadas em meu serviço!
+              {t.aboutText}
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               {services.map((service) => (
@@ -275,7 +347,7 @@ export default function MobileLandingPage() {
           </div>
 
           <div className="grunge-panel rounded-[1.5rem] border border-zinc-800 bg-[#f5ff00] p-4 text-black">
-            <p className="mb-3 text-[8px] font-black uppercase tracking-[0.32em] text-black/80">Preços base</p>
+            <p className="mb-3 text-[8px] font-black uppercase tracking-[0.32em] text-black/80">{t.pricingTitle}</p>
             <div className="space-y-3">
               {pricing.map((item) => (
                 <div key={item.label} className="border-b border-black/20 pb-2 last:border-0 last:pb-0">
@@ -303,7 +375,7 @@ export default function MobileLandingPage() {
           <div className="relative h-full w-full bg-black" onClick={(event) => event.stopPropagation()}>
             <div className="flex items-center justify-between border-b border-zinc-800 bg-black/85 px-4 py-3">
               <div>
-                <p className="text-[8px] uppercase tracking-[0.28em] text-[#f5ff00]">preview</p>
+                <p className="text-[8px] uppercase tracking-[0.28em] text-[#f5ff00]">{t.preview}</p>
                 <h3 className="mt-1 text-base font-black uppercase tracking-[-0.04em] text-white">{selectedProject.title}</h3>
               </div>
 
@@ -336,7 +408,7 @@ export default function MobileLandingPage() {
       <footer id="contact" className="relative border-t border-zinc-800 bg-black/70">
         <div className="mx-auto flex max-w-md flex-col gap-5 px-4 py-6 text-center">
           <div>
-            <p className="text-[8px] uppercase tracking-[0.32em] text-[#f5ff00]">Contato</p>
+            <p className="text-[8px] uppercase tracking-[0.32em] text-[#f5ff00]">{t.contact}</p>
             <a href="https://x.com/osparkin" target="_blank" rel="noreferrer" className="mt-2 block text-xl font-black uppercase tracking-[-0.04em] text-white">
               @osparkin
             </a>

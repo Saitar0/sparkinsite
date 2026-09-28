@@ -84,6 +84,74 @@ const editorProjects = [
 
 const tools = ['Premiere', 'After Effects', 'DaVinci Resolve']
 
+const translations = {
+  pt: {
+    tag: 'editor de vídeo',
+    contact: 'Contato',
+    requestQuote: 'Solicitar orçamento',
+    selectedWork: 'Meus vídeos',
+    selectedWorkLabel: 'trabalhos selecionados',
+    partnership: 'para outros youtubers',
+    partnershipTitle: 'trabalhos em parceria',
+    about: 'Sobre',
+    aboutTitle: 'editor de vídeo e criador de conteúdo.',
+    aboutText:
+      'Crio videos desde os 10 anos de idade, e ao longo do tempo adquiri cada vez mais habilidade na edição de video com muito treino e videos próprios para os meus canais no Youtube. Mas agora optei por fazer disso meu trabalho, e além de projetos pessoais, trabalhei para pessoas como "Recanto Lenhoso", "Azun" e obviamente, meu canal, "Eu o Sparkin". Estou em busca de mais pessoas interessadas em meu serviço!',
+    pricingTitle: 'Preços base',
+    heroTitle: 'Sou o Sparkin, editor de vídeo e criador de conteúdo. Tenho experiência em DaVinci, After Effects e Premiere.',
+    heroAccent: 'E crio video com a energia, ritmo e identidade visual de sua preferência!',
+    primaryCta: 'Ver Portfólio',
+    secondaryCta: 'Sobre',
+    available: 'Disponível para projetos',
+    preview: 'preview',
+  },
+  en: {
+    tag: 'video editor',
+    contact: 'Contact',
+    requestQuote: 'Request quote',
+    selectedWork: 'My videos',
+    selectedWorkLabel: 'selected work',
+    partnership: 'for other creators',
+    partnershipTitle: 'partnership projects',
+    about: 'About',
+    aboutTitle: 'video editor and content creator.',
+    aboutText:
+      'I have been creating videos since I was 10 years old, and over time I developed a strong editing skill through constant practice and my own YouTube content. I eventually chose to turn it into my profession, and in addition to personal projects, I have worked with creators such as "Recanto Lenhoso", "Azun" and my own channel, "Eu o Sparkin". I am looking for more people interested in my work!',
+    pricingTitle: 'Base prices',
+    heroTitle: 'I am Sparkin, a video editor and content creator. I have experience in DaVinci, After Effects and Premiere.',
+    heroAccent: 'I create videos with the energy, rhythm and visual identity you want!',
+    primaryCta: 'View Portfolio',
+    secondaryCta: 'About',
+    available: 'Available for projects',
+    preview: 'preview',
+  },
+}
+
+function LanguageToggle({ language, onChange }) {
+  const isPt = language === 'pt'
+
+  return (
+    <button
+      type="button"
+      onClick={() => onChange(isPt ? 'en' : 'pt')}
+      aria-label={isPt ? 'Switch to English' : 'Mudar para português'}
+      className="relative inline-flex h-10 w-20 items-center rounded-full border border-[#f5ff00]/70 bg-black/70 p-1 shadow-[0_0_0_2px_rgba(245,255,0,0.12)] transition-all duration-200"
+    >
+      <span className="flex w-full items-center justify-between px-1 text-[10px] font-black uppercase tracking-[0.18em] text-zinc-400">
+        <span>PT</span>
+        <span>EN</span>
+      </span>
+      <span
+        className={`absolute top-1 flex h-8 w-8 items-center justify-center rounded-full border border-black bg-[#f5ff00] text-base shadow-[2px_2px_0_#000] transition-all duration-200 ${
+          isPt ? 'left-1' : 'left-[calc(100%-2.25rem)]'
+        }`}
+      >
+        {isPt ? '🇧🇷' : '🇺🇸'}
+      </span>
+    </button>
+  )
+}
+
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: {
@@ -93,7 +161,7 @@ const fadeUp = {
   },
 }
 
-function DesktopLandingPage() {
+function DesktopLandingPage({ language, setLanguage }) {
   const [hoveredProject, setHoveredProject] = useState(null)
   const [selectedProject, setSelectedProject] = useState(null)
   const [hasUserInteraction, setHasUserInteraction] = useState(false)
@@ -136,6 +204,8 @@ function DesktopLandingPage() {
     }
   }
 
+  const t = translations[language]
+
   return (
     <div className="min-h-screen bg-[#09090b] text-white antialiased" onPointerDown={() => setHasUserInteraction(true)}>
       <div className="pointer-events-none fixed inset-0 opacity-60 mix-blend-screen">
@@ -172,12 +242,15 @@ function DesktopLandingPage() {
             ))}
           </nav>
 
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center rounded-full border border-[#f5ff00] bg-[#f5ff00] px-4 py-2 text-[10px] font-black uppercase tracking-[0.22em] text-black transition duration-300 hover:-translate-y-0.5 hover:bg-black hover:text-[#f5ff00]"
-          >
-            Contato
-          </a>
+          <div className="flex items-center gap-3">
+            <LanguageToggle language={language} onChange={setLanguage} />
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center rounded-full border border-[#f5ff00] bg-[#f5ff00] px-4 py-2 text-[10px] font-black uppercase tracking-[0.22em] text-black transition duration-300 hover:-translate-y-0.5 hover:bg-black hover:text-[#f5ff00]"
+            >
+              {t.contact}
+            </a>
+          </div>
         </div>
       </header>
 
@@ -271,14 +344,14 @@ function DesktopLandingPage() {
           <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="mb-2 text-[10px] font-medium uppercase tracking-[0.32em] text-[#f5ff00]">
-                selected work
+                {t.selectedWorkLabel}
               </p>
               <h2 className="text-3xl font-black uppercase tracking-[-0.06em] text-white sm:text-5xl">
-                meus videos
+                {t.selectedWork}
               </h2>
             </div>
             <a href="#contact" className="text-sm font-semibold uppercase tracking-[0.25em] text-zinc-300 transition hover:text-[#f5ff00]">
-              Solicitar orçamento
+              {t.requestQuote}
             </a>
           </div>
 
@@ -354,10 +427,10 @@ function DesktopLandingPage() {
           <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="mb-2 text-[10px] font-medium uppercase tracking-[0.32em] text-[#f5ff00]">
-                para outros youtubers
+                {t.partnership}
               </p>
               <h2 className="text-3xl font-black uppercase tracking-[-0.06em] text-white sm:text-5xl">
-                trabalhos em parceria
+                {t.partnershipTitle}
               </h2>
             </div>
           </div>
@@ -436,12 +509,12 @@ function DesktopLandingPage() {
           className="grid gap-8 py-14 md:grid-cols-[1.15fr_0.85fr]"
         >
           <div className="grunge-panel rounded-[2rem] border border-zinc-800 bg-zinc-950 p-6 sm:p-8">
-            <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.32em] text-[#f5ff00]">Sobre</p>
+            <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.32em] text-[#f5ff00]">{t.about}</p>
             <h2 className="text-3xl font-black uppercase tracking-[-0.06em] text-white sm:text-4xl">
-              editor de vídeo e criador de conteúdo.
+              {t.aboutTitle}
             </h2>
             <p className="mt-5 max-w-xl text-base leading-7 text-zinc-300">
-              Crio videos desde os 10 anos de idade, e ao longo do tempo adquiri cada vez mais habilidade na edição de video com muito treino e videos próprios para os meus canais no Youtube. Mas agora optei por fazer disso meu trabalho, e além de projetos pessoais, trabalhei para pessoas como "Recanto Lenhoso", "Azun" e obviamente, meu canal, "Eu o Sparkin". Estou em busca de mais pessoas interessadas em meu serviço!
+              {t.aboutText}
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               {services.map((service) => (
@@ -456,7 +529,7 @@ function DesktopLandingPage() {
           </div>
 
           <div className="grunge-panel rounded-[2rem] border border-zinc-800 bg-[#f5ff00] p-5 text-black sm:p-6">
-            <p className="mb-4 text-[10px] font-black uppercase tracking-[0.32em] text-black/80">Preços base</p>
+            <p className="mb-4 text-[10px] font-black uppercase tracking-[0.32em] text-black/80">{t.pricingTitle}</p>
             <div className="space-y-3">
               {pricing.map((item) => (
                 <div key={item.label} className="border-b border-black/20 pb-3 last:border-0 last:pb-0">
@@ -490,7 +563,7 @@ function DesktopLandingPage() {
           >
             <div className="flex items-center justify-between border-b border-zinc-800 bg-black/80 px-4 py-3 sm:px-6">
               <div>
-                <p className="text-[10px] uppercase tracking-[0.28em] text-[#f5ff00]">preview</p>
+                <p className="text-[10px] uppercase tracking-[0.28em] text-[#f5ff00]">{t.preview}</p>
                 <h3 className="mt-1 text-lg font-black uppercase tracking-[-0.04em] text-white sm:text-xl">
                   {selectedProject.title}
                 </h3>
@@ -525,7 +598,7 @@ function DesktopLandingPage() {
       <footer id="contact" className="relative border-t border-zinc-800 bg-black/70">
         <div className="mx-auto flex max-w-7xl flex-col gap-5 px-4 py-8 text-center sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
           <div>
-            <p className="text-[10px] uppercase tracking-[0.32em] text-[#f5ff00]">Contato</p>
+            <p className="text-[10px] uppercase tracking-[0.32em] text-[#f5ff00]">{t.contact}</p>
             <a
               href="https://x.com/zssparkin"
               target="_blank"
@@ -536,9 +609,15 @@ function DesktopLandingPage() {
             </a>
           </div>
 
-          <div className="flex items-center justify-center gap-3 text-xs uppercase tracking-[0.25em] text-zinc-400 sm:justify-end">
+          <div className="flex flex-wrap items-center justify-center gap-2 text-xs uppercase tracking-[0.2em] text-zinc-400 sm:justify-end">
             {socials.map((item) => (
-              <a key={item.label} href={item.href} target="_blank" rel="noreferrer" className="transition-colors duration-200 hover:text-[#f5ff00]">
+              <a
+                key={item.label}
+                href={item.href}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center rounded-full border border-zinc-700 bg-zinc-900/60 px-3 py-2 transition-all duration-200 hover:border-[#f5ff00] hover:text-[#f5ff00]"
+              >
                 {item.label}
               </a>
             ))}
@@ -551,12 +630,13 @@ function DesktopLandingPage() {
 
 export default function App() {
   const isMobile = useIsMobile()
+  const [language, setLanguage] = useState('pt')
 
   // A lógica de desktop/mobile foi separada aqui para preservar a versão atual
   // e trocar apenas o layout em telas pequenas, sem mexer no comportamento da desktop.
   if (isMobile) {
-    return <MobileLandingPage />
+    return <MobileLandingPage language={language} setLanguage={setLanguage} />
   }
 
-  return <DesktopLandingPage />
+  return <DesktopLandingPage language={language} setLanguage={setLanguage} />
 }
