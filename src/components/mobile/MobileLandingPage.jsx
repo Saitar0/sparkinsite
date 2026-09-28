@@ -127,10 +127,7 @@ export default function MobileLandingPage() {
             {['S', 'P', 'A', 'R', 'K', 'I', 'N'].map((letter, index) => (
               <span
                 key={letter + index}
-                className={`inline-flex h-[3.2rem] w-[2.15rem] items-center justify-center border-2 border-black text-[2rem] ${
-                  index % 2 === 0 ? 'bg-[#f5ff00] text-black' : 'bg-zinc-100 text-black'
-                }`}
-                style={{ boxShadow: '4px 4px 0 #000' }}
+                className={`letter-block mobile-letter-block ${index % 2 === 0 ? 'bg-[#f5ff00]' : 'bg-zinc-100'}`}
               >
                 {letter}
               </span>

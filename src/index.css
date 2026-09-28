@@ -105,6 +105,32 @@ img {
   color: #09090b;
 }
 
+.mobile-letter-block {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-width: 0.82em;
+  padding: 0.02em 0.08em;
+  font-family: Impact, Haettenschweiler, 'Arial Black', sans-serif;
+  font-size: clamp(2.1rem, 8vw, 3rem);
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+  color: #09090b;
+  background: linear-gradient(180deg, #f3f3f3 0%, #d7d7d7 100%);
+  border: 3px solid #000;
+  box-shadow: 6px 6px 0 #f5ff00;
+  transform: skewY(-2deg);
+  filter: contrast(1.15);
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.12);
+  white-space: nowrap;
+}
+
+.mobile-letter-block:nth-child(odd) {
+  background: linear-gradient(180deg, #f5ff00 0%, #d5de00 100%);
+  color: #09090b;
+}
+
 .magnetic-button {
   position: relative;
   overflow: hidden;
