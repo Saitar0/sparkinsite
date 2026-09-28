@@ -140,24 +140,28 @@ function LanguageToggle({ language, onChange }) {
   const isPt = language === 'pt'
 
   return (
-    <button
-      type="button"
-      onClick={() => onChange(isPt ? 'en' : 'pt')}
-      aria-label={isPt ? 'Switch to English' : 'Mudar para português'}
-      className="relative inline-flex h-10 w-20 items-center rounded-full border border-[#f5ff00]/70 bg-black/70 p-1 shadow-[0_0_0_2px_rgba(245,255,0,0.12)] transition-all duration-200"
-    >
-      <span className="flex w-full items-center justify-between px-1 text-[10px] font-black uppercase tracking-[0.18em] text-zinc-400">
-        <span>PT</span>
-        <span>EN</span>
-      </span>
-      <span
-        className={`absolute top-1 flex h-8 w-8 items-center justify-center rounded-full border border-black bg-[#f5ff00] text-base shadow-[2px_2px_0_#000] transition-all duration-200 ${
-          isPt ? 'left-1' : 'left-[calc(100%-2.25rem)]'
-        }`}
-      >
-        {isPt ? '🇧🇷' : '🇺🇸'}
-      </span>
-    </button>
+    <div className="flex items-center gap-2 rounded-full border border-[#f5ff00]/70 bg-black/70 p-1.5 shadow-[0_0_0_2px_rgba(245,255,0,0.12)]">
+      {['pt', 'en'].map((value) => {
+        const active = language === value
+        const flag = value === 'pt' ? '🇧🇷' : '🇺🇸'
+
+        return (
+          <button
+            key={value}
+            type="button"
+            onClick={() => onChange(value)}
+            aria-label={value === 'pt' ? 'Mudar para português' : 'Switch to English'}
+            className={`relative flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border text-lg transition-all duration-200 hover:scale-105 ${
+              active
+                ? 'border-black bg-[#f5ff00] shadow-[2px_2px_0_#000]'
+                : 'border-zinc-700 bg-zinc-900 text-zinc-500 hover:border-[#f5ff00] hover:text-[#f5ff00]'
+            }`}
+          >
+            <span aria-hidden="true">{flag}</span>
+          </button>
+        )
+      })}
+    </div>
   )
 }
 
@@ -231,7 +235,7 @@ function DesktopLandingPage({ language, setLanguage }) {
             />
             <div>
               <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#f5ff00]">
-                {language === 'pt' ? 'Eu o Sparkin' : 'I am Sparkin'}
+                {language === 'pt' ? 'Eu o Sparkin' : 'Eu o Sparkin'}
               </p>
               <p className="text-[9px] uppercase tracking-[0.25em] text-zinc-400">{language === 'pt' ? 'editor' : 'editor'}</p>
             </div>
