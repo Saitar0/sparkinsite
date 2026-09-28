@@ -123,8 +123,18 @@ export default function MobileLandingPage() {
             editor de vídeo
           </div>
 
-          <h1 className="mb-4 font-black uppercase leading-[0.8] tracking-[-0.08em] text-white">
-            <span className="block text-[3.5rem] text-[#f5ff00]">SPARKIN</span>
+          <h1 className="mb-4 flex justify-center gap-1 font-black uppercase leading-[0.8] tracking-[-0.08em] text-white">
+            {['S', 'P', 'A', 'R', 'K', 'I', 'N'].map((letter, index) => (
+              <span
+                key={letter + index}
+                className={`inline-flex h-[3.2rem] w-[2.15rem] items-center justify-center border-2 border-black text-[2rem] ${
+                  index % 2 === 0 ? 'bg-[#f5ff00] text-black' : 'bg-zinc-100 text-black'
+                }`}
+                style={{ boxShadow: '4px 4px 0 #000' }}
+              >
+                {letter}
+              </span>
+            ))}
           </h1>
 
           <p className="mx-auto max-w-sm text-sm leading-6 text-zinc-300">
