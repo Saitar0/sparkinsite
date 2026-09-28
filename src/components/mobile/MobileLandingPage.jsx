@@ -17,7 +17,7 @@ const videoFive = new URL('https://6zdlkwedureb9c8l.public.blob.vercel-storage.c
 const videoSix = new URL('https://6zdlkwedureb9c8l.public.blob.vercel-storage.com/AZUN%20INTRO%20METAMORFOSE%20%28%40ZSSPARKIN%29_compressed.mp4', import.meta.url).href
 
 const socials = [
-  { label: 'Twitter', href: 'https://x.com/osparkin' },
+  { label: 'Twitter', href: 'https://x.com/zssparkin' },
   { label: 'TikTok', href: 'https://www.tiktok.com/@sousparkin' },
   { label: 'E-mail', href: 'https://mail.google.com/mail/?view=cm&fs=1&to=sparkineditor.contato@gmail.com&su=Pedido%20de%20edi%C3%A7%C3%A3o&body=Ol%C3%A1!%20Tudo%20bem%3F%20Gostaria%20de%20pedir%20uma%20edi%C3%A7%C3%A3o%20sua.%20Pode%20me%20ajudar%3F' },
   { label: 'Youtube', href: 'https://www.youtube.com/@osparkin' },
