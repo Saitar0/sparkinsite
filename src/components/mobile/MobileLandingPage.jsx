@@ -299,14 +299,14 @@ export default function MobileLandingPage() {
               </button>
             </div>
 
-            <div className="h-[calc(100vh-68px)] w-full bg-black">
+            <div className="flex h-[calc(100vh-68px)] w-full items-center justify-center bg-black px-2 py-3">
               <video
                 src={selectedProject.video}
                 controls
                 autoPlay
                 playsInline
                 preload="metadata"
-                className="h-full w-full object-cover"
+                className="max-h-[calc(100vh-100px)] w-full max-w-full rounded-sm bg-black object-contain"
               />
             </div>
           </div>
