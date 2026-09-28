@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import avatar from '../../../imagens/banner-e-foto/channels4_profile.jpg'
 
@@ -85,6 +85,15 @@ const fadeUp = {
 
 export default function MobileLandingPage() {
   const [selectedProject, setSelectedProject] = useState(null)
+  const modalVideoRef = useRef(null)
+
+  useEffect(() => {
+    if (!selectedProject || !modalVideoRef.current) return
+
+    const video = modalVideoRef.current
+    video.load()
+    video.muted = true
+  }, [selectedProject])
 
   return (
     <div className="min-h-screen bg-[#09090b] text-white antialiased">
@@ -308,13 +317,13 @@ export default function MobileLandingPage() {
 
             <div className="flex h-[calc(100vh-68px)] w-full items-center justify-center bg-black px-2 py-3">
               <video
+                ref={modalVideoRef}
                 src={selectedProject.video}
                 controls
-                autoPlay
-                muted={false}
                 playsInline
                 webkit-playsinline="true"
-                preload="auto"
+                preload="metadata"
+                poster={selectedProject.thumb}
                 className="max-h-[calc(100vh-100px)] w-full max-w-full rounded-sm bg-black object-contain"
               />
             </div>

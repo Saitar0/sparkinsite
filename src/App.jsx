@@ -99,6 +99,10 @@ function DesktopLandingPage() {
   const videoRefs = useRef([])
   const modalVideoRef = useRef(null)
 
+  const openSelectedProject = (project) => {
+    setSelectedProject(project)
+  }
+
   const handleProjectHover = (index) => {
     setHoveredProject(index)
 
@@ -506,11 +510,10 @@ function DesktopLandingPage() {
                 ref={modalVideoRef}
                 src={selectedProject.video}
                 controls
-                autoPlay
-                muted={false}
                 playsInline
                 webkit-playsinline="true"
-                preload="auto"
+                preload="metadata"
+                poster={selectedProject.thumb}
                 className="h-full w-full object-cover"
               />
             </div>
