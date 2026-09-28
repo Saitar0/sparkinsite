@@ -12,12 +12,12 @@ const thumbFour = new URL('../imagens/videos/a MELHOR e a PIOR NOTA de cada FRAN
 const thumbFive = new URL('../imagens/videos/A DECADÊNCIA dos jogos LEGO [ED_Xl8jK6Ho].webp', import.meta.url).href
 const thumbSix = new URL('../imagens/videos/AZUN INTRO METAMORFOSE (@ZSSPARKIN) [J4eBF25OXT0].jpeg', import.meta.url).href
 
-const videoOne = 'https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/gmod.mkv'
-const videoTwo = 'https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/valorantcomamigos.mkv'
-const videoThree = 'https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/issonaoeumaia.mkv'
-const videoFour = 'https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/a%20MELHOR%20e%20a%20PIOR%20NOTA%20de%20cada%20FRANQUIA.mkv'
-const videoFive = 'https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/A%20DECAD%C3%8ANCIA%20dos%20jogos%20LEGO.mkv'
-const videoSix = 'https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/AZUN%20INTRO%20METAMORFOSE%20%28%40ZSSPARKIN%29.mkv'
+const videoOne = new URL('https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/gmod.mp4', import.meta.url).href
+const videoTwo = new URL('https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/valorantcomamigos.mp4', import.meta.url).href
+const videoThree = new URL('https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/issonaoeumaia.mp4', import.meta.url).href
+const videoFour = new URL('https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/a%20MELHOR%20e%20a%20PIOR%20NOTA%20de%20cada%20FRANQUIA.mp4', import.meta.url).href
+const videoFive = new URL('https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/A%20DECAD%C3%8ANCIA%20dos%20jogos%20LEGO.mp4', import.meta.url).href
+const videoSix = new URL('https://lacolrwipmkx0s1j.public.blob.vercel-storage.com/AZUN%20INTRO%20METAMORFOSE%20%28%40ZSSPARKIN%29.mp4', import.meta.url).href
 
 const letters = ['S', 'P', 'A', 'R', 'K', 'I', 'N']
 
@@ -507,7 +507,10 @@ function DesktopLandingPage() {
                 src={selectedProject.video}
                 controls
                 autoPlay
+                muted={false}
                 playsInline
+                webkit-playsinline="true"
+                preload="auto"
                 className="h-full w-full object-cover"
               />
             </div>
