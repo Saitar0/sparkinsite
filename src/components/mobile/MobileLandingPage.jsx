@@ -100,8 +100,8 @@ const translations = {
     aboutText:
       'Crio videos desde os 10 anos de idade, e ao longo do tempo adquiri cada vez mais habilidade na edição de video com muito treino e videos próprios para os meus canais no Youtube. Mas agora optei por fazer disso meu trabalho, e além de projetos pessoais, trabalhei para pessoas como "Recanto Lenhoso", "Azun" e obviamente, meu canal, "Eu o Sparkin". Estou em busca de mais pessoas interessadas em meu serviço!',
     pricingTitle: 'Preços base',
-    heroTitle: 'Sou o Sparkin, editor de vídeo e criador de conteúdo. Tenho experiência em DaVinci, After Effects e Premiere.',
-    heroAccent: 'E crio video com a energia, ritmo e identidade visual de sua preferência!',
+    heroTitle: 'Olá! Eu sou o Sparkin, editor de video e criador de conteúdo! Sou um editor que trabalha com três ferramentas, AE, PR e Davinci Resolve. Meu principal objetivo é lhe entregar videos com ritmo, energia e tema de acordo com',
+    heroAccent: ' sua preferência!',
     primaryCta: 'Ver Portfólio',
     secondaryCta: 'Sobre',
     available: 'Disponível para projetos',
@@ -121,8 +121,8 @@ const translations = {
     aboutText:
       'I have been creating videos since I was 10 years old, and over time I developed a strong editing skill through constant practice and my own YouTube content. I eventually chose to turn it into my profession, and in addition to personal projects, I have worked with creators such as "Recanto Lenhoso", "Azun" and my own channel, "Eu o Sparkin". I am looking for more people interested in my work!',
     pricingTitle: 'Base prices',
-    heroTitle: 'I am Sparkin, a video editor and content creator. I have experience in DaVinci, After Effects and Premiere.',
-    heroAccent: 'I create videos with the energy, rhythm and visual identity you want!',
+    heroTitle: 'Hello! I am Sparkin, video editor and content creator! I am an editor who works with three tools: AE, PR and DaVinci Resolve. My main goal is to deliver videos with rhythm, energy and theme according to',
+    heroAccent: ' your preference!',
     primaryCta: 'View Portfolio',
     secondaryCta: 'About',
     available: 'Available for projects',
